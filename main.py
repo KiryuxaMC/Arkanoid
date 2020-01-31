@@ -34,6 +34,9 @@ def main():
         # Обновление позиций мячика
         ball.update()
 
+        # Проверка коллизий с обьектами
+        gf.check_colision(board, ball, bricks)
+
         #Обновление экрана
         gf.update_screen(sett, screen, board, ball)
         

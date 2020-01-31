@@ -36,4 +36,7 @@ def update_screen(sett, screen, board, ball):
     pygame.time.Clock().tick(sett.FPS)
     pygame.display.update()
     
-    
+def check_colision(board, ball, bricks):
+    '''Проверка коллизий'''
+    if board.rect.colliderect(ball):
+        ball.dy = -ball.dy

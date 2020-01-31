@@ -24,6 +24,8 @@ class Ball(Sprite):
         if self.rect.centery >= self.screen_rect.height or \
            self.rect.centery <= 0:
             self.dy = -self.dy
+        
+        
 
         self.rect.centery += self.dy
         self.rect.centerx += self.dx
