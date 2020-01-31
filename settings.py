@@ -1,3 +1,4 @@
+
 class Settings:
     '''Класс настроек игры'''
     def __init__(self):
@@ -9,4 +10,6 @@ class Settings:
         self.white = 255, 255, 255
         self.red = 218, 0, 0
 
-        
+        #Скорость
+        self.board_speed = 3
+        self.ball_speed = 2
