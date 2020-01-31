@@ -30,7 +30,6 @@ class Ball(Sprite):
         self.rect.centery += self.dy
         self.rect.centerx += self.dx
         
-    
     def blit_me(self):
         '''Отрисовка шарика'''
         self.screen.blit(self.image, self.rect)

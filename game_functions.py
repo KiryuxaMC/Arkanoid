@@ -1,6 +1,7 @@
 import pygame
 
 def check_events(sett, board):
+    '''Проверка событий клавиатуры и мыши'''
     for event in pygame.event.get():
         if event.type == pygame.QUIT:# выход из игры
             exit()
