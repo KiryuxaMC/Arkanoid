@@ -1,4 +1,5 @@
 import pygame
+from brick import Brick
 
 def check_events(sett, board):
     '''Проверка событий клавиатуры и мыши'''
@@ -22,7 +23,7 @@ def check_events(sett, board):
             elif event.key == pygame.K_RIGHT:# перемещение вправо
                 board.moving_right = False
 
-def update_screen(sett, screen, board, ball, brick):
+def update_screen(sett, screen, board, ball, bricks):
     '''Обновление экрана'''
     # Заливка белым
     screen.fill(sett.blue)
@@ -33,7 +34,8 @@ def update_screen(sett, screen, board, ball, brick):
     # Отрисовка шарика
     ball.blit_me()
 
-    brick.blit_me()
+    #Отрисовка группы кирпичей
+    bricks.draw(screen)
 
     # Обновление экрана и частоты кадров
     pygame.time.Clock().tick(sett.FPS)
@@ -41,5 +43,36 @@ def update_screen(sett, screen, board, ball, brick):
     
 def check_colision(board, ball, bricks):
     '''Проверка коллизий'''
+
+    # Проверка доски с мячиком
     if board.rect.colliderect(ball):
         ball.dy = -ball.dy
+    
+    # Проверка кирпичей и мячика
+    if pygame.sprite.spritecollideany(ball, bricks):
+        brick = pygame.sprite.spritecollideany(ball, bricks)
+        delete_bricks(ball, brick)
+
+def delete_bricks(ball, brick):
+    '''Удаляет кирпичи и меняет направление мяча'''
+
+    # Удаление кирпича
+    brick.kill()
+
+    # Изменения направления мячика
+    ball.dy *= -1
+    #ball.dx *= -1 
+
+def create_bricks(screen, sett, briks):
+    '''Создаёт поле кирпичей'''
+    brick = Brick(screen, sett)
+    available_space_x = sett.W - brick.rect.width
+    number_bricks = available_space_x // brick.rect.width
+    #print(f"width = {number_bricks*brick.rect.width}")
+
+    for row_brick in range(1, 6):
+        for col_brick in range(1, number_bricks):
+            brick = Brick(screen, sett)
+            brick.rect.x = brick.rect.width*col_brick
+            brick.rect.y = brick.rect.height*row_brick
+            briks.add(brick)
