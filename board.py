@@ -23,7 +23,6 @@ class Board(Sprite):
            self.rect.left > 0:
             self.rect.centerx -= self.settings.board_speed
         
-
     def blit_me(self):
         '''Отрисовка доски'''
         self.screen.blit(self.image, self.rect)
