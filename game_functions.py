@@ -22,16 +22,18 @@ def check_events(sett, board):
             elif event.key == pygame.K_RIGHT:# перемещение вправо
                 board.moving_right = False
 
-def update_screen(sett, screen, board, ball):
+def update_screen(sett, screen, board, ball, brick):
     '''Обновление экрана'''
     # Заливка белым
-    screen.fill(sett.white)
+    screen.fill(sett.blue)
 
     # Отрисовка доски
     board.blit_me()
 
     # Отрисовка шарика
     ball.blit_me()
+
+    brick.blit_me()
 
     # Обновление экрана и частоты кадров
     pygame.time.Clock().tick(sett.FPS)
