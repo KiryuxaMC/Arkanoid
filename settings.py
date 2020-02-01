@@ -4,7 +4,7 @@ class Settings:
     def __init__(self):
         '''Инициализация параметров игры'''
         # Настройки экрана и частоты кадров
-        self.W = 600
+        self.W = 546
         self.H = 400
         self.FPS = 60
 
