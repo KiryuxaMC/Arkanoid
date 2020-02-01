@@ -3,7 +3,6 @@ import game_functions as gf
 from settings import Settings
 from board import Board
 from ball import Ball
-from brick import Brick
 from pygame.sprite import Group
 
 def main():
@@ -17,14 +16,13 @@ def main():
 
     # Создание группы кирпичей
     bricks = Group()
+    gf.create_bricks(screen, sett, bricks)
 
     # Подключение класса доски
     board = Board(screen, sett)
 
     # Подключение класса мячика
     ball = Ball(screen, sett, board)
-
-    brick = Brick(screen, sett)
 
     while True:
         # Обработка событий
@@ -40,7 +38,7 @@ def main():
         gf.check_colision(board, ball, bricks)
 
         #Обновление экрана
-        gf.update_screen(sett, screen, board, ball, brick)
+        gf.update_screen(sett, screen, board, ball, bricks)
         
 
 if __name__ == '__main__':
