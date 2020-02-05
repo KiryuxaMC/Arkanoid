@@ -27,4 +27,7 @@ class Board(Sprite):
         '''Отрисовка доски'''
         self.screen.blit(self.image, self.rect)
 
-
+    def stop_moving(self):
+        '''Функция для остановки движения'''
+        self.moving_left = False
+        self.moving_right = False
