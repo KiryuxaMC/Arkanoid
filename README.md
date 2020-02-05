@@ -20,11 +20,9 @@ A: Научиться писать простые 2D игры.
   1. Чтобы двигать вправо и влево ракетку достаточно нажимать на соответсвующие клавиши **Вправо** или **Влево** на клавиатуре.
   2. Если хотите эктренно покинуть игру, нажмите на крестик окошка, если же хотите завершить процесс игры и посмотреть на свои успехи в виде очков, то нажмите клавишу **Esc**.
 
-<p align="center"><img src="https://github.com/KiryuxaMC/Arkanoid/blob/master/Arkanoid_Im/moving.gif"></p>
-
 <h1>Набор очков</h1>
 
   1. Если вы смогли сбить 1 кирпич, то вам за это начисляется **1 очко**.
   2. Свои успехи в виде очков вы сможете посмотреть после проигрыша или после прекращения вами игры в течение ***двух секунд***.
 
-<p align="center"><img src="https://github.com/KiryuxaMC/Arkanoid/blob/master/Arkanoid_Im/game_over.gif"></p>
+<p align="center"><img src="https://github.com/KiryuxaMC/Arkanoid/blob/master/Arkanoid_Im/game_example.gif"></p>
