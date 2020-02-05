@@ -35,7 +35,7 @@ def main():
         ball.update()
 
         # Проверка коллизий с обьектами
-        gf.check_colision(board, ball, bricks)
+        gf.check_colision(sett, board, ball, bricks)
 
         #Обновление экрана
         gf.update_screen(sett, screen, board, ball, bricks)
