@@ -1,5 +1,7 @@
 import pygame
 from brick import Brick
+from ball import Ball
+from random import randint as rd
 
 def check_events(sett, board):
     '''Проверка событий клавиатуры и мыши'''
@@ -41,18 +43,21 @@ def update_screen(sett, screen, board, ball, bricks):
     pygame.time.Clock().tick(sett.FPS)
     pygame.display.update()
     
-def check_colision(board, ball, bricks):
+def check_colision(sett, board, ball, bricks):
     '''Проверка коллизий'''
 
     # Проверка доски с мячиком
     if board.rect.colliderect(ball):
-        ball.dy = -ball.dy
+        if (board.moving_left and ball.dx > 0) or \
+           (board.moving_right and ball.dx < 0):
+            ball.dx *= -1
+        ball.dy *= -1
     
     # Проверка кирпичей и мячика
     if pygame.sprite.spritecollideany(ball, bricks):
         brick = pygame.sprite.spritecollideany(ball, bricks)
         delete_bricks(ball, brick)
-
+        
 def delete_bricks(ball, brick):
     '''Удаляет кирпичи и меняет направление мяча'''
 
@@ -60,8 +65,8 @@ def delete_bricks(ball, brick):
     brick.kill()
 
     # Изменения направления мячика
-    ball.dy *= -1
-    #ball.dx *= -1 
+    ball.dy = -ball.dy
+    ball.dx = -ball.dx
 
 def create_bricks(screen, sett, briks):
     '''Создаёт поле кирпичей'''
